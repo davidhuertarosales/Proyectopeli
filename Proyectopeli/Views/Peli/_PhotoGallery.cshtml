@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Proyectopeli.Models.Pelicula>
+@foreach (var item in Model)
+{  
+<div class="photo-index-card">
+    <h3>"@item.Title"</h3>
+
+    @if (item.Poster != null)
+    {
+    <div class="photo-display">
+        <img class="img-responsive img-rounded" width="200" src="@Url.Action("GetImage","Peli", new { id = item.PeliID  })" />
+    </div>
+    }
+    <div class="photo-metadata">
+        <div>
+            <span class="display-label">
+                Creado por:
+            </span>
+            <span class="display-field">
+                @Html.DisplayFor(model => item.Director)
+            </span>
+        </div>
+
+        <div>
+            <span class="display-label">
+                Fecha de estreno:
+            </span>
+            <span class="display-field">
+
+                @Html.DisplayFor(model => item.Fecha_estreno)
+            </span>
+        </div>
+    </div>
+
+    @Html.ActionLink("Display", "Display", new { id = item.PeliID })
+</div>
+        }
+    

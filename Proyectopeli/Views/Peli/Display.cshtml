@@ -1,0 +1,45 @@
+﻿@model Proyectopeli.Models.Pelicula
+@{
+    ViewBag.Title = "Display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Pelicula: @Model.Title </title>
+</head>
+<body>
+    <center><h2>"@Model.Title"</h2></center>
+    <div class="row" id="d1">
+        <div class="col-md-4">
+            <h2>Poster</h2>
+            <hr />
+            <img class="img-responsive img-rounded" id="im" width="300" src="@Url.Action("GetImage", "Peli", new { id = Model.PeliID })" />
+        </div>
+        <div class="col-md-8">
+            <p>
+                <h2>@Html.DisplayNameFor(model => model.Sinopsis):</h2>
+                <hr />
+                @Html.DisplayFor(model => model.Sinopsis)
+            </p>
+            <p>
+                <h2> @Html.DisplayNameFor(model => model.Director):</h2>
+                <hr />
+                @Html.DisplayFor(model => model.Director)
+            </p>
+            <p>
+                <h2>@Html.DisplayNameFor(model => model.Fecha_estreno):</h2>
+                <hr />
+                @Html.DisplayFor(model => model.Fecha_estreno)
+            </p>
+        </div>
+    </div>
+    @Html.Action("_CommentsForPhoto", "Comment", new { PeliID = Model.PeliID })
+    <p>
+        @Html.ActionLink("Back to List", "Index", "Peli")
+
+    </p>
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All Photos</title>
+</head>
+<body>
+    <div> 
+        <h2>All Photos</h2>
+        <p>
+            @Html.ActionLink("Add a Photo", "Create", "Peli")
+        </p>
+
+        @Html.Action("_PhotoGallery", "Peli")
+    </div>
+</body>
+</html>

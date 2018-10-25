@@ -1,0 +1,31 @@
+﻿@model Proyectopeli.Models.Comentario
+
+@Html.ValidationSummary(true)
+
+<div class="add-comment-tool">
+
+    <div>
+        <span class="comment-editor-label">
+            @Html.LabelFor(model => model.Critica)  
+        </span>
+        <span class="comment-editor-field">
+            @Html.EditorFor(model => model.Critica)
+            @Html.ValidationMessageFor(model => model.Critica)
+        </span>
+    </div>
+
+    <div>
+        <span class="comment-editor-label">
+            @Html.LabelFor(model => model.Cuerpo)
+        </span>
+        <span class="comment-editor-field">
+            @Html.EditorFor(model => model.Cuerpo)
+            @Html.ValidationMessageFor(model => model.Cuerpo)
+        </span>
+    </div>
+
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+
+</div>
